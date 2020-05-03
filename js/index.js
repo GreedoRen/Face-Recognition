@@ -265,6 +265,7 @@ function button_callback() {
 	dets = pico.run_cascade(image, facefinder_classify_region, params);
 	// cluster the obtained detections
 	dets = pico.cluster_detections(dets, 0.2); // set IoU threshold to 0.2
+	console.log(dets);
 	// draw results
 	qthresh = 5.0; // this constant is empirical: other cascades might require a different one
 	for (i = 0; i < dets.length; ++i)
@@ -272,9 +273,10 @@ function button_callback() {
 		// if it's above the threshold, draw it
 		if (dets[i][3] > qthresh) {
 			ctx.beginPath();
-			ctx.arc(dets[i][1], dets[i][0], dets[i][2] / 2, 0, 2 * Math.PI, false);
+			ctx.arc(dets[i][1], dets[i][0], dets[i][2] / 2, 0, 2 * Math.PI, false); //x, y, radius, startAngle, endAngle [, anticlockwise]
 			ctx.lineWidth = 3;
-			ctx.strokeStyle = 'red';
+			ctx.strokeStyle = 'green';
+			ctx.fill();
 			ctx.stroke();
 		}
 }
