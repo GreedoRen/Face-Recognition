@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
-    <div class='container'>
-        <video id='video'></video>
-    </div>
+    <div><canvas id="canvas" height=360 width=480></canvas></div>
+		<div style="display:none;"><img id="image" src="img.jpg"></div>
+	<div><input type="button" value="Detect faces" onclick="button_callback()"></div>
+
+    <script src="./js/index.js"></script>
 </body>
 </html>
